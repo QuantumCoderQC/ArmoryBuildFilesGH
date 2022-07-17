@@ -17,10 +17,10 @@ class Project {
     static function build( path : String, name : String, dst : String, forceRebuild = true, backgroundMode = true, buildScript = 'blender/build_project.py' ) {
         if( !exists( path ) )
             throw 'Directory [$path] not found';
-        var srcdir = '$path/$name';
+        var srcdir = '$path';
         if( !exists( path ) )
             throw 'Directory [$srcdir] not found';
-        var dstdir = '$dst/$name';
+        var dstdir = '$dst';
         if( exists( dstdir ) )
             forceRebuild ? rmdir(dstdir) : return 0;
         var blend = '$srcdir/$name.blend';
