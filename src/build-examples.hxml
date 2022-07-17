@@ -1,0 +1,2 @@
+-cp src
+--macro Project.build("example","main","web/example",true)
