@@ -1,2 +1,2 @@
--cp src
+-cp ArmoryBuildFilesGH
 --macro Project.build("example","main","web/example",true)
