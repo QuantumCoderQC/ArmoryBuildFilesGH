@@ -14,7 +14,7 @@ class Project {
 
     #if macro
 
-    static function build( path : String, name : String, dst : String, forceRebuild = true, backgroundMode = true, buildScript = 'ArmoryProjectBuilderGH/build_project.py' ) {
+    static function build( path : String, name : String, dst : String, forceRebuild = true, backgroundMode = true, buildScript = 'ArmoryBuildFilesGH/build_project.py' ) {
         if( !exists( path ) )
             throw 'Directory [$path] not found';
         var srcdir = '$path';
