@@ -35,18 +35,6 @@ class Project {
                 trace( 'Exit code 0 but build directory not found: $builddir' );
                 return 1;
             }
-            if( !exists( dst ) ) createDirectory( dst );
-            rename( builddir, dstdir );
-            var readmeFile = 'README.md';
-            var readmePath = '$srcdir/$readmeFile';
-            if( exists( readmePath ) )
-                File.copy( readmePath, '$dstdir/$readmeFile' );
-            else
-                File.saveContent( '$dstdir/$readmeFile', '' );
-            // Sys.println('Creating readme.html');
-            // var readmePath = '$srcdir/README.md';
-            // var html = exists( readmePath ) ? Markdown.markdownToHtml( File.getContent(readmePath) ) : "";
-            // File.saveContent( '$dstdir/readme.html', html );
         }
         return code;
     }
