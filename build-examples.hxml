@@ -1,2 +1,2 @@
 -cp ArmoryBuildFilesGH
---macro Project.build("example","main","web/example",true)
+--macro Project.build("example","main","web",true)
