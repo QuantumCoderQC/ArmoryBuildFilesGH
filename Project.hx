@@ -14,7 +14,7 @@ class Project {
 
     #if macro
 
-    static function build( path : String, name : String, dst : String, forceRebuild = true, backgroundMode = true, buildScript = 'ArmoryBuildFilesGH/build_project.py' ) {
+    static function build( path : String, name : String, dst : String, forceRebuild = true, backgroundMode = true, buildScript = 'ArmoryProjectBuilderGH/build_project.py' ) {
         if( !exists( path ) )
             throw 'Directory [$path] not found';
         var srcdir = '$path';
@@ -35,6 +35,21 @@ class Project {
                 trace( 'Exit code 0 but build directory not found: $builddir' );
                 return 1;
             }
+            if( !exists( '$dstdir/html5' ) ) createDirectory( '$dstdir/html5' );
+            rename( builddir, '$dstdir/html5' );
+
+            builddir = '$srcdir/build_$name/html5-resources';
+            if( !exists( builddir ) ) {
+                trace( 'Exit code 0 but build directory not found: $builddir' );
+                return 1;
+            }
+            if( !exists( '$dstdir/html5-resources' ) ) createDirectory( '$dstdir/html5-resources' );
+            rename( builddir, '$dstdir/html5-resources' );
+
+            var nojekylldir = '$dstdir/.nojekyll';
+            var fout = File.write(nojekylldir, false);
+            if(fout != null) fout.close();
+            
         }
         return code;
     }
