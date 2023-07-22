@@ -1,6 +1,6 @@
 import sys, os
 import bpy
-import arm, arm.utils
+import arm.utils
 import arm.make_state as state
 
 target = 'html5'
